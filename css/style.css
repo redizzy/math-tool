@@ -1,0 +1,85 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+header p {
+    color: #666;
+}
+
+.calculator,
+.results,
+.chart-section,
+.explanation {
+    background: white;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+textarea {
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+.results p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666;
+}
+
+footer a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.chart-section canvas {
+    height: 400px !important;
+}

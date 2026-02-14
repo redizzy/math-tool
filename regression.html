@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Linear Regression Calculator (Simple & Free)</title>
+    <meta name="description" content="Free online linear regression calculator. Calculate slope, intercept and R-squared easily with a simple tool.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Linear Regression Calculator</h1>
+    <p>Enter your data points to calculate the regression line, slope, intercept, and R² instantly.</p>
+</header>
+
+<section class="calculator">
+    <label>X values (comma separated)</label>
+    <textarea id="xValues" placeholder="1,2,3,4"></textarea>
+
+    <label>Y values (comma separated)</label>
+    <textarea id="yValues" placeholder="2,3,5,7"></textarea>
+
+    <button onclick="calculateRegression()">Calculate</button>
+</section>
+
+<section class="results">
+    <h2>Results</h2>
+    <p><strong>Slope (β₁):</strong> <span id="slope"></span></p>
+    <p><strong>Intercept (β₀):</strong> <span id="intercept"></span></p>
+    <p><strong>R²:</strong> <span id="r2"></span></p>
+</section>
+
+<section class="chart-section">
+    <h2>Regression Plot</h2>
+    <canvas id="regressionChart"></canvas>
+</section>
+
+
+<section class="explanation">
+    <h2>What is Linear Regression?</h2>
+    <p>
+        Linear regression is a statistical method used to model the relationship 
+        between two variables by fitting a linear equation to observed data.
+        The equation of a simple linear regression line is:
+    </p>
+    <p><strong>y = β₀ + β₁x</strong></p>
+    <p>
+        Where β₁ is the slope and β₀ is the intercept.
+    </p>
+    <h2>How to Use This Linear Regression Calculator</h2>
+    <ol>
+        <li>Enter your X values separated by commas.</li>
+        <li>Enter your Y values separated by commas.</li>
+        <li>Click the Calculate button.</li>
+        <li>The slope, intercept, and R² value will be displayed instantly.</li>
+    </ol>
+
+    <h2>Regression Formula</h2>
+
+    <p>
+    The slope is calculated as:
+    </p>
+
+    <p>
+    $$
+    \beta_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}
+    {\sum (x_i - \bar{x})^2}
+    $$
+    </p>
+
+    <p>
+    The intercept is calculated as:
+    </p>
+
+    <p>
+    $$
+    \beta_0 = \bar{y} - \beta_1 \bar{x}
+    $$
+    </p>
+
+    <p>
+    The regression equation is:
+    </p>
+
+    <p>
+    $$
+    y = \beta_0 + \beta_1 x
+    $$
+    </p>
+</section>
+
+<footer>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+</footer>
+
+<script src="js/regression.js"></script>
+
+</body>
+</html>

@@ -121,4 +121,5 @@ function initializeEmptyChart() {
 
 window.onload = function() {
     initializeEmptyChart();
+    
 };

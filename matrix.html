@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Matrix Calculator</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="matrix-page">
 
 <header>
     <h1>Matrix Calculator</h1>
+    <p>Exact fraction matrix operations</p>
 </header>
 
-<main class="container">
-    <div class="card">
-        <p>Matrix tool coming soon.</p>
-    </div>
-</main>
+<section class="calculator">
+    <h2>Matrix A</h2>
+    <textarea id="matrixA" placeholder="Example:
+1 2
+3 4"></textarea>
 
-</body>
+    <h2>Matrix B</h2>
+    <textarea id="matrixB" placeholder="Example:
+5 6
+7 8"></textarea>
+
+    <button onclick="addMatrices()">Add</button>
+    <button onclick="multiplyMatrices()">Multiply</button>
+</section>
+
+<section class="results">
+    <h2>Result</h2>
+    <pre id="result"></pre>
+</section>
+
+<script src="js/matrix.js"></script>
+<body class="matrix-page">
 </html>

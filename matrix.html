@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <title>Matrix Calculator</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="matrix-page">
 
 <header>
     <h1>Matrix Calculator</h1>
-    <p>Exact fraction matrix operations</p>
+    <p>Choose decimal or exact fraction mode</p>
 </header>
 
 <section class="calculator">
+    <div style="margin-bottom:12px;">
+        <label><input type="radio" name="matrixMode" value="decimal" checked> Decimal Mode</label>
+        &nbsp;&nbsp;
+        <label><input type="radio" name="matrixMode" value="fraction"> Fraction Mode</label>
+    </div>
+    <div id="matrixFractionHint" style="display:none; color:#555; font-size:14px; margin:8px 0 16px;">
+        Fraction Mode Input Instructions:
+        <ul>
+            <li>Each row of the matrix should be separated by a newline.</li>
+            <li>Each element in a row should be separated by a space.</li>
+            <li>Elements can be integers, decimals, or fractions (e.g., 1/2, -3/5, 0.25).</li>
+            <li>Negative denominators (e.g., 3/-4) will be automatically normalized to positive form.</li>
+        </ul>
+    </div>
     <h2>Matrix A</h2>
     <textarea id="matrixA" placeholder="Example:
 1 2
@@ -33,5 +55,17 @@
 </section>
 
 <script src="js/matrix.js"></script>
+<script>
+(function(){
+  function updateHint() {
+    var mode = document.querySelector('input[name="matrixMode"]:checked')?.value || 'decimal';
+    var hint = document.getElementById('matrixFractionHint');
+    hint.style.display = mode === 'fraction' ? 'block' : 'none';
+  }
+  var radios = document.querySelectorAll('input[name="matrixMode"]');
+  radios.forEach(function(r){ r.addEventListener('change', updateHint); });
+  updateHint();
+})();
+</script>
 <body class="matrix-page">
 </html>

@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <title>Ax = b Solver</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
 <header>
     <h1>Ax = b Solver</h1>
-    <p>Solve linear systems using Gaussian elimination</p>
+    <p>Solve with decimal or exact fraction mode</p>
 </header>
 
 <section class="calculator">
+    <div style="margin-bottom:12px;">
+        <label><input type="radio" name="solverMode" value="decimal" checked> Decimal Mode</label>
+        &nbsp;&nbsp;
+        <label><input type="radio" name="solverMode" value="fraction"> Fraction Mode</label>
+    </div>
+    <div id="solverFractionHint" style="display:none; color:#555; font-size:14px; margin:8px 0 16px;">
+        Fraction Mode Input Instructions:
+        <ul>
+            <li>Each row of the matrix should be separated by a newline.</li>
+            <li>Each element in a row should be separated by a space.</li>
+            <li>Elements can be integers, decimals, or fractions (e.g., 1/2, -3/5, 0.25).</li>
+            <li>Negative denominators (e.g., 3/-4) will be automatically normalized to positive form.</li>
+        </ul>
+    </div>
 
     <h2>Matrix A</h2>
     <textarea id="matrixA" placeholder="Example:
@@ -36,6 +58,18 @@
 </footer>
 
 <script src="js/solver.js"></script>
+<script>
+(function(){
+  function updateHint() {
+    var mode = document.querySelector('input[name="solverMode"]:checked')?.value || 'decimal';
+    var hint = document.getElementById('solverFractionHint');
+    hint.style.display = mode === 'fraction' ? 'block' : 'none';
+  }
+  var radios = document.querySelectorAll('input[name="solverMode"]');
+  radios.forEach(function(r){ r.addEventListener('change', updateHint); });
+  updateHint();
+})();
+</script>
 
 </body>
 </html>
